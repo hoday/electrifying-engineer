@@ -1,0 +1,756 @@
+/*
+Theme Name: Electrifying Engineer
+Theme URI: https://github.com/hoday/electrifying-engineer/
+Author: hodayx
+Author URI: https://wordpress.org/
+Description: Simple theme with support for the Electrifying Engineer Portfolio plugin
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: electrifying-engineer
+Tags: custom-header, custom-menu, custom-logo, full-width-template, translation-ready, portfolio
+*/
+
+@import "../../node_modules/bootstrap/scss/bootstrap-reboot";
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+
+
+//
+// Override bootstrap reboot:
+//
+/*
+body {
+    line-height: 1.25;
+}
+*/
+
+$magenta: #FF3399;
+$magenta-light: #F066CC;
+$magenta-dark: #CC2266;
+
+$text-bg-light: #373a3c;
+$text-bg-dark: #eceeef;
+$text-bg-dark-light: #FFFFFF;
+$text-bg-dark-muted: #818a91;
+$text-bg-verydark: #ffffff;
+
+
+.bg-dark {
+    color: $text-bg-dark;
+    background-color: #373a3c;
+    svg {
+        fill: $text-bg-dark;
+        stroke: $text-bg-dark;
+    }
+}
+
+.bg-verydark {
+    color: $text-bg-verydark;
+    background-color: #222222;
+    svg {
+        fill: $text-bg-verydark;
+        stroke: $text-bg-verydark;
+    }
+}
+
+.bg-light {
+    color: #373a3c;
+    background-color: #fdfdff;
+    svg {
+        fill: $text-bg-light;
+        stroke: #373a3c;
+    }
+}
+
+.bg-verydark-links {
+    a {
+        color: white;
+    }
+    a:link {
+        color: white;
+    }
+    a:visited {
+        color: white;
+
+    }
+    a:hover {
+        color: white;
+
+    }
+    a:active {
+        color: white;
+
+    }
+}
+
+.container-narrow {
+    @include media-breakpoint-up(md) {
+        max-width: 760px;
+    }
+    @include media-breakpoint-up(lg) {
+        max-width: 760px;
+    }
+    @include media-breakpoint-up(xl) {
+        max-width: 760px;
+    }
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+body, h3, div {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+a {
+    font-weight: 700;
+}
+
+h1 {
+    text-align: center;
+}
+
+blockquote {
+    font-size: 1.15rem;
+    font-style: italic;
+    margin: 0.25em 0;
+    padding: 0.25em 40px;
+    color: #333333;
+    background:#f9f9fc;
+}
+
+/*
+.posts {
+    @extend .bg-light;
+}
+*/
+
+
+////////////////////////////////////////////
+// basic structure
+// /////////////////////////////////////////
+
+html {
+    height:100%;
+    min-height:100vh;
+}
+body {
+    min-height:100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+#nav {
+    flex: 0 0 auto;
+}
+#content {
+    flex: 1 1 auto;
+}
+#footer {
+    flex: 0 0 auto;
+}
+
+///////////////////////////////////////////
+// Wordpress required classes
+///////////////////////////////////////////
+
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
+.wp-caption {
+    max-width:100%;
+    height:auto;
+}
+.wp-caption-text {
+    text-align: center;
+}
+.sticky {
+    font-weight: 700;
+}
+
+.screen-reader-text {
+    font-weight: 700;
+}
+
+.gallery-caption {
+    text-align: center;
+    font-size: 0.8rem;
+}
+.bypostauthor {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+img.alignright, .wp-caption.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft, .wp-caption.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter, .wp-caption.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+.wp-caption {
+    text-align: center;
+}
+
+/*
+.blog {
+    .posts {
+        @extend .container;
+        @extend .container-narrow;
+
+        .post {
+            margin-bottom: 3rem;
+            margin-top: 3rem;
+        }
+    }
+
+}
+*/
+
+.sidebar {
+    @extend .container;
+    @extend .container-narrow;
+}
+
+body.page #content:not(.page-fullwidth) > *,
+body.blog #content:not(.page-fullwidth) > *,
+body.error404 #content:not(.page-fullwidth) > *,
+body.search #content:not(.page-fullwidth) > *,
+body.single #content:not(.page-fullwidth) > *,
+body.archive #content:not(.page-fullwidth) > * {
+    @extend .container;
+    @extend .container-narrow;
+}
+body.page #content:not(.page-fullwidth) > *,
+body.blog #content:not(.page-fullwidth) > *,
+body.error404 #content:not(.page-fullwidth) > *,
+body.search #content:not(.page-fullwidth) > *,
+body.single #content:not(.page-fullwidth) > *,
+body.archive #content:not(.page-fullwidth) > * {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+#content.page-fullwidth .thumbnail {
+    margin-top: 1rem;
+}
+
+/*
+body.page .page,
+body.blog .post,
+body.error404 .error404msg,
+body.search #content > *  {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+*/
+
+
+.indent {
+    margin-left: 3rem;
+}
+
+/* make the div expand downwards to contain floated imgs so that they do not extend past the bottom*/
+p:last-child::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* aligns featured images in center */
+.thumbnail {
+    text-align:center;
+}
+
+/* */
+.posts {
+    .postdate, .postauthor {
+        color: #777777;
+
+        a {
+            color: #777777;
+        }
+    }
+}
+
+.postdate {
+    margin-bottom: 1rem;
+}
+
+.comment-navigation {
+    margin-bottom: 1rem;
+    display: flex;
+
+    .nav-previous {
+        flex: 1 1 50%;
+        text-align: left;
+    }
+    .nav-next {
+        flex: 1 1 50%;
+        text-align: right;
+
+    }
+}
+
+.comment-form textarea {
+    display: block;
+}
+.comment-form {
+    margin-bottom: 1rem;
+}
+//////////////////////////////////////////
+
+.widget {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+%list-unstyled-custom {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.widgets-list {
+    @extend %list-unstyled-custom;
+}
+
+.widget {
+    font-size:0.85rem;
+    line-height:1.5/(0.85);
+
+}
+
+/*Make archive title bold just like <a> for the individual post titles below*/
+.archive-title {
+    font-weight: 800;
+}
+
+
+.widget-area {
+    column-count: 3;
+    column-width: 200px;
+    column-gap: 30px;
+}
+//////////////////////////////////////////
+#footer {
+    @extend .bg-verydark;
+    color: $text-bg-dark-muted;
+
+    .footer-container {
+        @extend .container;
+        @extend .container-narrow;
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+        text-align: center;
+    }
+}
+
+
+#nav {
+    @extend .navbar;
+    @extend .navbar-dark;
+    @extend .bg-dark;
+}
+
+.post-edit-link {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.post-edit-link-wrapper {
+    text-align: right;
+}
+
+.posts-nav-links {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top:3rem;
+    margin-bottom:3rem;
+}
+
+nav li {
+    list-style: none;
+}
+
+//////
+.navbar-sitename {
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-collapse {
+    text-align: right;
+}
+
+.collapsed {
+    height: 0px;
+}
+
+
+body img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+#exCollapsingNavbar {
+    -webkit-transition: height 0.2s linear;
+    -moz-transition: height 0.2s linear;
+    transition: height 0.2s linear;
+    overflow:hidden;
+}
+
+
+.heroimg-wrapper {
+    text-align: center;
+
+    img {
+        max-width:100%;
+        height: auto;
+        clip: rect(0px,450px,900px,0px);
+
+    }
+}
+
+
+///////////////////////////////////////////
+
+
+.eep-item-link
+{
+    @extend .btn;
+    color: white;
+    background-color:$magenta;
+    border-color: $magenta-dark;
+}
+
+
+
+.eep-item-link-container {
+    a {
+        background-color:$magenta;
+        border-color: $magenta-dark;
+
+        :link,
+        :visited,
+        :active {
+            background-color:$magenta;
+        	border-color: $magenta-dark;
+        }
+        :hover {
+            background-color:#BB2277;
+        	border-color: #B04499;
+        }
+
+    }
+}
+
+
+.eep-section-container {
+    @extend .container;
+
+}
+
+.eep-item-caption {
+    padding-top: 1rem;
+}
+
+.eep-item-caption {
+    /*change this to js in the future*/
+    min-height: 8rem;
+}
+
+.eep-item-title {
+    margin-bottom: 1.5rem;
+}
+
+.eep-item-title {
+    font-size: 1.25rem;
+    line-height: 1.44rem;
+    .bg-dark & {
+        color: #eceeef;
+    }
+    .bg-light & {
+        color: #373a3c;
+    }
+}
+.eep-item-title:hover {
+    .bg-dark & {
+        color: white;
+    }
+    .bg-light & {
+        color: black;
+    }
+}
+
+
+a {
+    .bg-dark & {
+        color: #eceeef;
+    }
+    .bg-light & {
+        color: #373a3c;
+    }
+}
+
+a:hover {
+    .bg-dark & {
+        color: white;
+    }
+    .bg-light & {
+        color: black;
+    }
+}
+
+
+a {
+    color: #333333;
+    &:link {
+        text-decoration: none;
+    }
+    &:visited {
+        text-decoration: none;
+    }
+    &:hover {
+        color: #777777;
+        text-decoration: none!important;
+    }
+    &:active {
+        text-decoration: none;
+    }
+}
+
+
+
+.eep-section-title {
+
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1.75rem;
+}
+
+.eep-section-seemore {
+    padding-top: 1.5rem;
+}
+
+.eep-section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.eep-item {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.eep-item-skills-container {
+    .skill {
+        @extend .badge;
+        @extend .badge-pill;
+
+        .bg-dark & {
+            @extend .badge-light;
+        }
+        .bg-light & {
+            @extend .badge-dark;
+        }
+    }
+}
+
+.eep-item-description {
+    line-height: 1.25rem;
+}
+
+.eep-item-description {
+    margin-bottom: 1.5rem;
+}
+
+.eep-item-skills-container {
+    margin-bottom: 1.5rem;
+}
+
+
+#eep-featured-projects {
+    @extend .bg-dark;
+}
+#eep-featured-portfolioitems {
+    @extend .bg-light;
+}
+#eep-featured-publications {
+    @extend .bg-dark;
+}
+#eep-all-portfolioitems {
+    @extend .bg-light;
+}
+
+
+
+.eep-section-container {
+    @extend .container-narrow;
+}
+
+#eep-project-content {
+    @extend .bg-light;
+}
+#eep-project-credits {
+    @extend .bg-light;
+}
+#eep-project-relatedpublications {
+    @extend .bg-verydark;
+}
+#eep-project-readmore {
+    @extend .bg-light;
+}
+
+#eep-project-relatedpublications {
+    @extend .bg-verydark-links;
+}
+
+.eep-item-publication {
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+}
+
+.eep-item-publication {
+    border-bottom-color: #CCCCCC!important;
+    border-top-color: #CCCCCC!important;
+}
+
+.eep-project-relatedpublications,
+.eep-section-featured-publications {
+
+    .eep-item-publication-title {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1rem!important;
+        margin-bottom: 0px!important;
+    }
+    .eep-item-publication-author {
+        font-size: 1rem!important;
+    }
+    .eep-item-publication-location {
+        font-size: 1rem!important;
+    }
+}
+
+.eep-project-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.eep-section-subtitle {
+    text-transform: uppercase;
+    font-weight: 500!important;
+    font-size: 1.55rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.eep-section-contents {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.eep-section-subsubtitle {
+    @extend .eep-section-subtitle;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    bottom: 1rem;
+    text-align: center;
+}
+
+.eep-readmoreitem-text {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.eep-readmoreitem-title {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.eep-readmoreitem-excerpt {
+    font-weight: 500;
+}
+
+.eep-project-credits {
+    font-style: italic;
+}
+
+.eep-project-featuredimg {
+    text-align: center;
+    img {
+        max-width: 100%;
+    }
+}
+
+.eep-description {
+    padding-bottom: 2rem;
+}
+
+body.post-type-archive-eep_project #content > * {
+    @extend .bg-light;
+    max-width: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* ******************************************** */
+/* The followig styles are manually typed in cpts. They should go in editor-style.css later. */
+
+.blurb {
+    font-style: italic;
+}
+.questionHeading {
+    font-size: 110%;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+.questionDetail {
+    margin-bottom: 1rem;
+}
+
+.descriptionList {
+    padding-left: 30px;
+    -webkit-padding-start: 40px;
+
+}
